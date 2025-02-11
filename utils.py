@@ -39,9 +39,24 @@ class Utils():
             ["017","105","George Wang","34","Male","57000","2016-03-15"],
             ["018","104","Nancy Liu","29","Female","50000","2017-06-01"],
             ["019","103","Steven Chen","36","Male","62000","2015-08-01"],
-            ["020","102","Grace Kim","32","Female","53000","2018-11-01"]
+            ["020","102","Grace Kim","32", "","53000","2018-11-01"]
         ]
 
         emp_schema = "employee_id string, department_id string, name string, age string, gender string, salary string, hire_date string"
 
         return self.__spark_session.createDataFrame(data=emp_data, schema=emp_schema)
+    
+    def get_department_data(self):
+        dept_data = [
+            ["101", "Sales", "NYC", "US", "1000000"],
+            ["102", "Marketing", "LA", "US", "900000"],
+            ["103", "Finance", "London", "UK", "1200000"],
+            ["104", "Engineering", "Beijing", "China", "1500000"],
+            ["105", "Human Resources", "Tokyo", "Japan", "800000"],
+            ["106", "Research and Development", "Perth", "Australia", "1100000"],
+            ["107", "Customer Service", "Sydney", "Australia", "950000"]
+        ]
+
+        dept_schema = "department_id string, department_name string, city string, country string, budget string"
+
+        return self.__spark_session.createDataFrame(data=dept_data, schema=dept_schema)

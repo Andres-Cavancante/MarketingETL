@@ -1,12 +1,14 @@
 version: '3.8'
 
 services:
-  spark-etl:
+  spark-container:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - .:/app
+    ports:
+      - "4040:4040" # Access spark UI
     working_dir: /app
     tty: true
     stdin_open: true 
